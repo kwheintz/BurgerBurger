@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-6">
+        {{#each burger}}
+        {{#unless this.devour}}
+        <p>{{this.name}}</p>
+        <button burgerid={{this.id}} class = "devour-form">Devour</button>
+        {{/unless}}
+        {{/each}}
+    </div>
+    <div class="col-sm-6">
+        {{#each burger}}
+        {{#if this.devour}}
+        <p>{{this.name}}</p>
+        <button burgerid={{this.id}} class = "destroy-btn">Throw Away</button>
+
+        {{/if}}
+        {{/each}}
+    </div>
+
+</div>
+
+
+<form action="/api/burgers" method="POST">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Burger Name</label>
+        <input type="input" class="form-control" id="exampleInputEmail1" name="burger_name" placeholder="Enter email">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
